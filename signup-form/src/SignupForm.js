@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './SignupForm.css';
+import { saveUserSignupData } from './actions/user';
 
 export const SignupForm = () => {
   const [name, setName] = useState('');
@@ -24,6 +25,14 @@ export const SignupForm = () => {
     console.log('Latitude:', latitude);
     console.log('Longitude:', longitude);
     console.log('Role:', role);
+   
+    //api call 
+
+    const userFormData = {
+        name,email,password,familyMembers,address,foodPreference,latitude
+        ,longitude,role
+    }
+    saveUserSignupData(userFormData);
     setSubmitted(true);
   };
 
